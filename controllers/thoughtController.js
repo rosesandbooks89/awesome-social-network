@@ -1,7 +1,7 @@
 const { Thought, User } = require('../models');
 
 const thoughtController = {
-  //create new thought
+  // Create a new thought
   async createThought({ body }, res) {
     try {
       const newThought = await Thought.create(body);
@@ -13,7 +13,7 @@ const thoughtController = {
     }
   },
 
-  // get all thoughts
+  // Fetch all thoughts
   async getAllThoughts(req, res) {
     try {
       const thoughts = await Thought.find();
@@ -24,7 +24,7 @@ const thoughtController = {
     }
   },
 
-  // get thought by id
+  // Fetch a specific thought by ID
   async getThoughtById({ params }, res) {
     try {
         console.log("Thought ID from Params:", params.id);
@@ -39,7 +39,7 @@ const thoughtController = {
     }
   },
 
-  // update thought by id
+  // Update a thought by ID
   async updateThought({ params, body }, res) {
     try {
       const updatedThought = await Thought.findByIdAndUpdate(params.id, body, { new: true });
@@ -53,7 +53,7 @@ const thoughtController = {
     }
   },
 
-  // delete thought by id
+  // Delete a thought
   async deleteThought({ params }, res) {
     try {
       const thought = await Thought.findByIdAndRemove(params.id);
@@ -68,7 +68,6 @@ const thoughtController = {
       res.status(400).json(err);
     }
   },
-  // add reaction to thought
 
   // Add a reaction to a thought
   async addReaction({ params, body }, res) {
@@ -84,8 +83,9 @@ const thoughtController = {
       res.status(400).json(err);
     }
   },
-  // delete reaction from thought
-  async deleteReaction({ params }, res) {
+
+  // Remove a reaction from a thought
+  async removeReaction({ params }, res) {
     try {
       const updatedThought = await Thought.findByIdAndUpdate(params.thoughtId, { $pull: { reactions: { reactionId: params.reactionId } } }, { new: true });
       if (!updatedThought) {

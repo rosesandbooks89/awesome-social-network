@@ -1,7 +1,7 @@
 const { User, Thought } = require("../models");
 
 const userController = {
-  // get all users
+  // Get all users
   async getAllUsers(req, res) {
     try {
       const dbUserData = await User.find({})
@@ -16,8 +16,9 @@ const userController = {
       res.status(500).json(err);
     }
   },
-  //get a single user by id
-  async getUserByID({ params }, res) {
+
+  // Get a single user by its _id and populated thought and friend data
+  async getUserById({ params }, res) {
     try {
       const dbUserData = await User.findOne({ _id: params.id })
         .populate({
@@ -41,7 +42,8 @@ const userController = {
       res.status(400).json(err);
     }
   },
-  //post a new user
+
+  // POST a new user
   async createUser({ body }, res) {
     try {
       const dbUserData = await User.create(body);
@@ -52,7 +54,7 @@ const userController = {
     }
   },
 
-  //update a user by id
+  // Update a user by its _id
   async updateUser({ params, body }, res) {
     try {
       const dbUserData = await User.findOneAndUpdate({ _id: params.id }, body, {
@@ -64,6 +66,7 @@ const userController = {
         res.status(404).json({ message: "No user found with this id!" });
         return;
       }
+
       res.json(dbUserData);
     } catch (err) {
       console.error(err);
