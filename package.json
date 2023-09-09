@@ -1,22 +1,21 @@
 {
-    "name": "Awesome-Social-Network",
-    "version": "1.0.0",
-    "description": "To build an API for a social network web application where users can share their thoughts, react to friends’ thoughts, and create a friend list.",
-    "main": "index.js",
-    "scripts": {
-      "test": "echo \"Error: no test specified\" && exit 1",
-      "start": "node index",
-      "dev": "nodemon index"
-    },
-    "dependencies": {
-      "express": "^4.18.2",
-      "mongoose": "^7.0.2"
-    },
-    "devDependencies": {
-      "nodemon": "^2.0.9"
-    },
-    "keywords": [],
-    "author": "",
-    "license": "ISC"
-  }
-  
+  "name": "awesome-social-network",
+  "version": "1.0.0",
+  "description": "To build an API for a social network web application where users can share their thoughts, react to friends’ thoughts, and create a friend list.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index",
+    "dev": "nodemon index"
+  },
+  "dependencies": {
+    "express": "^4.18.2",
+    "mongoose": "^7.0.2"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.9"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
