@@ -1,6 +1,7 @@
 # Awesome-Social-Network
 
 ## Description
+This is a social network API that uses a NoSQL database so that the website can handle large amounts of unstructured data. This application uses Express.js for routing, a MongoDB database, and the Mongoose ODM. It also uses dateFormat.js to format date/time. The user can create, update, and delete users and thoughts in the database. The user can also create and delete reactions to thoughts and add and remove friends to a user’s friend list.
 
 
 ## Table of Contents
