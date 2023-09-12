@@ -1,4 +1,4 @@
-# awesome-social-media-api
+# Awesome-Social-Network
 
 ## Description
 
