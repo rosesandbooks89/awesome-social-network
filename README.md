@@ -2,7 +2,7 @@
 
 ## Description
 
-Table of Contents
+
 ## Table of Contents
 * [User Story](#user-story)
 * [Acceptance Criteria](#acceptance-criteria)
