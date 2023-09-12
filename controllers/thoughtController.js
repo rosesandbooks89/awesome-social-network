@@ -5,7 +5,7 @@ const thoughtController = {
   async createThought({ body }, res) {
     try {
       const newThought = await Thought.create(body);
-      await User.findByIdAndUpdate(body.userId, { $push: { thoughts: newThought._id } }, { new: true });
+      await User.findByIdAndUpdate( {_id: req.body.userId}, { $push: { thoughts: newThought._id } }, { new: true });
       res.json(newThought);
     } catch (err) {
       console.error(err);

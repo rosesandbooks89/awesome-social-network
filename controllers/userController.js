@@ -4,7 +4,7 @@ const userController = {
   // Get all users
   async getAllUsers(req, res) {
     try {
-      const dbUserData = await User.find({})
+      const dbUserData = await User.find()
         .populate({
           path: "thoughts",
           select: "-__v",
