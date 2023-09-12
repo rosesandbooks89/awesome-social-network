@@ -10,13 +10,13 @@ const {
 } = require('../../controllers/thoughtController');
 
 // Route to get all thoughts
-router.route('/').get(getAllThoughts);
+router.route('/').get(getAllThoughts).post(createThought);
 
 // Route to get a single thought by ID, update a thought, or delete a thought
 router.route('/:id').get(getThoughtById).put(updateThought).delete(deleteThought);
 
-// Route to create a new thought associated by user)
-router.route('/user/:userId').post(createThought);
+// // Route to create a new thought associated by user)
+// router.route('/user/:userId').post(createThought);
 
 // Routes to add reactions on a thought
 router.route('/:thoughtId/reactions').post(addReaction);

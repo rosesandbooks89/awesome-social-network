@@ -2,14 +2,19 @@ const { Thought, User } = require('../models');
 
 const thoughtController = {
   // Create a new thought
-  async createThought({ body }, res) {
+  async createThought(req, res) {
     try {
-      const newThought = await Thought.create(body);
-      await User.findByIdAndUpdate( {_id: req.body.userId}, { $push: { thoughts: newThought._id } }, { new: true });
-      res.json(newThought);
+      const thought = await Thought.create(req.body);
+
+      const updatedUser = await User.findOneAndUpdate(
+        { _id: req.body.userId },
+        { $push: { thoughts: thought._id } },
+        { new: true }
+      )
+      res.json(thought);
     } catch (err) {
-      console.error(err);
-      res.status(400).json(err);
+      console.log(err);
+      return res.status(500).json(err);
     }
   },
 
